@@ -16,7 +16,6 @@ CRGB leds[NUM_LEDS];
 
 void setup()
 {
-//    FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
     FastLED.addLeds<WS2812B, DATA_PIN, RGB>(leds, NUM_LEDS);
 }
 
@@ -26,12 +25,26 @@ void loop()
     leds[0] = CRGB::Black; FastLED.show(); delay(30);
 }
 
+void step()
+{
+    for (int i = 0; i < NUM_LEDS; ++i) {
+        leds[i] = CRGB::White;
+        FastLED.show();
+        delay(30);
+
+        leds[i] = CRGB::Black;
+        FastLED.show();
+        delay(30);
+    }
+}
+
 extern "C" void app_main(void)
 {
     setup();
 
     while (1) {
-        loop();
+//        loop();
+        step();
     }
 }
 
