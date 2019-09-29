@@ -9,8 +9,8 @@
 #define ESP32
 #include "FastLED.h"
 
-#define NUM_LEDS 50
-#define DATA_PIN 15
+#define NUM_LEDS 16
+#define DATA_PIN 26
 
 CRGB leds[NUM_LEDS];
 
